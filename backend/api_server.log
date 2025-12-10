@@ -13,3 +13,16 @@
 2025-12-10 16:20:13,397 - werkzeug - INFO -  * Debugger PIN: 136-934-641
 2025-12-10 16:20:24,513 - werkzeug - INFO -  * Detected change in 'D:\\Hackathons\\SymptoGuide\\backend\\model\\test_complex_cases.py', reloading
 2025-12-10 16:20:25,732 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-12-10 16:20:28,093 - werkzeug - WARNING -  * Debugger is active!
+2025-12-10 16:20:28,100 - werkzeug - INFO -  * Debugger PIN: 136-934-641
+2025-12-10 16:22:07,653 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:07] "OPTIONS /api/analyze HTTP/1.1" 200 -
+2025-12-10 16:22:07,910 - SymptoGuide.API - ERROR - Analyze called but model not initialized
+2025-12-10 16:22:07,910 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:07] "[35m[1mPOST /api/analyze HTTP/1.1[0m" 503 -
+2025-12-10 16:22:08,917 - SymptoGuide.API - ERROR - Analyze called but model not initialized
+2025-12-10 16:22:08,918 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:08] "[35m[1mPOST /api/analyze HTTP/1.1[0m" 503 -
+2025-12-10 16:22:10,234 - SymptoGuide.API - ERROR - Analyze called but model not initialized
+2025-12-10 16:22:10,235 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:10] "[35m[1mPOST /api/analyze HTTP/1.1[0m" 503 -
+2025-12-10 16:22:11,248 - SymptoGuide.API - ERROR - Analyze called but model not initialized
+2025-12-10 16:22:11,248 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:11] "[35m[1mPOST /api/analyze HTTP/1.1[0m" 503 -
+2025-12-10 16:22:11,254 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:11] "OPTIONS /api/assess HTTP/1.1" 200 -
+2025-12-10 16:22:11,257 - werkzeug - INFO - 127.0.0.1 - - [10/Dec/2025 16:22:11] "POST /api/assess HTTP/1.1" 200 -
