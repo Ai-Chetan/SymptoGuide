@@ -426,8 +426,11 @@ if __name__ == '__main__':
         print("   GET  /api/health              - Health check")
         print("   POST /api/assess              - Simple triage assessment")
     
-    print("\n🚀 Starting Flask server...")
+    # Get port from environment variable (required for Render)
+    port = int(os.environ.get('PORT', 5000))
+    
+    print(f"\n🚀 Starting Flask server on port {port}...")
     print("="*80 + "\n")
     
-    # Run the server
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Run the server (debug=False for production)
+    app.run(host='0.0.0.0', port=port, debug=False)
