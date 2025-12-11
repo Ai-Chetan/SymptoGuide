@@ -63,9 +63,9 @@ const Hospitals = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [showEmergencyOnly, setShowEmergencyOnly] = useState(false);
-  const [nearbyHospitals, setNearbyHospitals] = useState<
-    DynamicHospital[] | null
-  >(null);
+  const [nearbyHospitals, setNearbyHospitals] = useState<DynamicHospital[] | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [fallbackUsed, setFallbackUsed] = useState(false);
@@ -112,27 +112,21 @@ const Hospitals = () => {
 
           console.log("✅ API Response:", data);
 
-          if (
-            data &&
-            Array.isArray(data.hospitals) &&
-            data.hospitals.length
-          ) {
-            const mapped: DynamicHospital[] = data.hospitals.map(
-              (h: any) => ({
-                id: String(h.id),
-                name: h.name,
-                address: h.address,
-                lat: h.lat,
-                lng: h.lng,
-                emergency: !!h.emergency,
-                phone: h.phone || "Not available",
-                specialties: h.specialties || [],
-                rating: h.rating || 4.5,
-                distance: h.distance || "",
-                has_specialties:
-                  h.has_specialties ?? (h.specialties || []).length > 0,
-              })
-            );
+          if (data && Array.isArray(data.hospitals) && data.hospitals.length) {
+            const mapped: DynamicHospital[] = data.hospitals.map((h: any) => ({
+              id: String(h.id),
+              name: h.name,
+              address: h.address,
+              lat: h.lat,
+              lng: h.lng,
+              emergency: !!h.emergency,
+              phone: h.phone || "Not available",
+              specialties: h.specialties || [],
+              rating: h.rating || 4.5,
+              distance: h.distance || "",
+              has_specialties:
+                h.has_specialties ?? (h.specialties || []).length > 0,
+            }));
             setNearbyHospitals(mapped);
             console.log(`📊 Found ${mapped.length} hospitals`);
             setFallbackUsed(Boolean(data.fallback_used));
@@ -195,9 +189,7 @@ const Hospitals = () => {
     }
 
     // Clear existing markers
-    markersRef.current.forEach((marker) =>
-      mapRef.current?.removeLayer(marker)
-    );
+    markersRef.current.forEach((marker) => mapRef.current?.removeLayer(marker));
     markersRef.current = [];
 
     // Add hospital markers
@@ -235,7 +227,7 @@ const Hospitals = () => {
 
       // Auto-fit map to show all markers
       if (markersRef.current.length > 0) {
-        const group = new L.featureGroup(markersRef.current);
+        const group = L.featureGroup(markersRef.current);
         mapRef.current?.fitBounds(group.getBounds(), { padding: [50, 50] });
       }
     }
