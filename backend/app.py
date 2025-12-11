@@ -37,7 +37,13 @@ except ImportError as e:
     ML_IMPORT_ERROR = str(e)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+
+# Configure CORS properly for production
+CORS(app, 
+     origins=["https://yoursymptoguide.vercel.app", "http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"],
+     methods=["GET", "POST", "OPTIONS"],
+     allow_headers=["Content-Type", "Authorization"],
+     supports_credentials=True)
 
 # Initialize the healthcare assistant
 assistant = None
